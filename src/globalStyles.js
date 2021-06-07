@@ -64,4 +64,9 @@ html{
     *:focus {
         outline: none;
     }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 `
