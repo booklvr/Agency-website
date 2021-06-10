@@ -2,6 +2,9 @@
 import styled from 'styled-components'
 import SvgBlock from '../../components/SvgBlock'
 import TextBlock from '../../components/TextBlock'
+import Tube from '../../assets/3dtube.png'
+import Cone from '../../assets/3dtriangle.png'
+import Capsule from '../../assets/3dcapsule.png'
 
 const ServiceSection = styled.div`
   width: 100vw;
@@ -24,10 +27,10 @@ const Background = styled.div`
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: 85vh;
+  height: 100%;
   background-color: var(--black);
   background-size: auto 100vh;
-  z-index: 1;
+  z-index: -1;
 `
 
 const Title = styled.h1`
@@ -69,6 +72,28 @@ const Content = styled.div`
   margin: 3rem 10rem;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
+  @media only Screen and (max-width: 48em) {
+    display: block;
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+  }
+`
+
+const OBJ = styled.div`
+  position: absolute;
+  top: 80%;
+  right: 35%;
+  width: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only Screen and (max-width: 48em) {
+    opacity: 0.5;
+  }
 `
 
 const Services = () => {
@@ -85,7 +110,32 @@ const Services = () => {
           title='We build award winning Designs'
           subText='We help clients to build great design to attract more customers'
         />
+        <OBJ>
+          <img src={Tube} alt='Tube' width='400' height='400' />
+        </OBJ>
         <SvgBlock svg='Design.svg'></SvgBlock>
+      </Content>
+      <Content>
+        <TextBlock
+          topic='Develop'
+          title='We develop high quality Web & App'
+          subText='We build appropriate solutions to develop your website and app with best tools available'
+        />
+        <OBJ>
+          <img src={Cone} alt='Triangle' width='400' height='400' />
+        </OBJ>
+        <SvgBlock svg='Develop.svg'></SvgBlock>
+      </Content>
+      <Content>
+        <TextBlock
+          topic='Support'
+          title='We provide support for your digital presence'
+          subText='Once your system is online, we will stay on hand to help you use it an provide technical support and maintenance for your business.'
+        />
+        <OBJ>
+          <img src={Capsule} alt='Capsule' width='400' height='400' />
+        </OBJ>
+        <SvgBlock svg='Support.svg'></SvgBlock>
       </Content>
     </ServiceSection>
   )

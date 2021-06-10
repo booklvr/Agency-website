@@ -8,8 +8,8 @@ const RightBlock = styled.div`
   width: 40%;
   position: relative;
 
-  svg {
-    width: ;
+  @media only Screen and (max-width: 48em) {
+    display: none;
   }
 `
 
