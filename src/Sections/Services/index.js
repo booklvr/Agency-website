@@ -1,5 +1,7 @@
 // This is Services component
 import styled from 'styled-components'
+import SvgBlock from '../../components/SvgBlock'
+import TextBlock from '../../components/TextBlock'
 
 const ServiceSection = styled.div`
   width: 100vw;
@@ -61,6 +63,14 @@ const Triangle = styled.span`
   border-top: 2rem solid var(--background);
 `
 
+const Content = styled.div`
+  display: flex;
+  /* margin: 10rem 10rem; */
+  margin: 3rem 10rem;
+  align-items: center;
+  justify-content: space-between;
+`
+
 const Services = () => {
   return (
     <ServiceSection>
@@ -69,6 +79,14 @@ const Services = () => {
         <Line />
         <Triangle />
       </Background>
+      <Content>
+        <TextBlock
+          topic='Design'
+          title='We build award winning Designs'
+          subText='We help clients to build great design to attract more customers'
+        />
+        <SvgBlock svg='Design.svg'></SvgBlock>
+      </Content>
     </ServiceSection>
   )
 }
