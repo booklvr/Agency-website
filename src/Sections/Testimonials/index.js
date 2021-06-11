@@ -6,6 +6,8 @@ import Slider from 'react-slick'
 import '../../../node_modules/slick-carousel/slick/slick.css'
 import '../../../node_modules/slick-carousel/slick/slick-theme.css'
 
+import Card from '../../components/Card'
+
 const Section = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,6 +40,37 @@ const Carousel = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media only Screen and (max-width: 40em) {
+    width: 90vw;
+
+    .slick-slider .slick-arrow {
+      display: none;
+    }
+  }
+  .slick-slider .slick-arrow:before {
+    color: var(--black);
+    font-size: calc(1.5rem + 1vw);
+
+    @media only Screen and (max-width: 40em) {
+      display: none;
+    }
+  }
+
+  .slick-slider .slick-dots button:before {
+    color: var(--black);
+    font-size: calc(1.5rem + 0.25vw);
+  }
+
+  .slick-slide.slick-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3rem;
+  }
 `
 
 const Testimonials = () => {
@@ -54,7 +87,26 @@ const Testimonials = () => {
       <Title>Few good words about us! </Title>
       <Carousel>
         <Slider {...settings}>
-          <Card />
+          <Card
+            text='CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them.'
+            name='Jenny (CodeCall)'
+            image='avatar-1'
+          />
+          <Card
+            text='CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them.'
+            name='Jenny (CodeCall)'
+            image='avatar-2'
+          />
+          <Card
+            text='CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them.'
+            name='Jenny (CodeCall)'
+            image='avatar-3'
+          />
+          <Card
+            text='CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them.'
+            name='Jenny (CodeCall)'
+            image='avatar-4'
+          />
         </Slider>
       </Carousel>
     </Section>
