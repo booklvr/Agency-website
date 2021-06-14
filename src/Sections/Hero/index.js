@@ -93,8 +93,6 @@ const LeftBlock = styled.div`
     margin-top: calc(2.5rem + 2.5vw);
     filter: drop-shadow(2px 4px 6px var(--black));
   }
-
-  
 `
 
 const Topic = styled.div`
@@ -174,7 +172,7 @@ const MobileSvg = styled.img`
 
 const HeroSection = () => {
   return (
-    <HeroSectionContainer>
+    <HeroSectionContainer id='home'>
       <Blobs>
         <PinkBlob>
           <img src={Pink} alt='pink blob' width='400' />

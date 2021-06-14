@@ -1,7 +1,9 @@
 // This is Header component /Navigation Component
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import logo from '../../assets/logo.svg'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const Headers = styled.header`
   display: flex;
@@ -12,6 +14,14 @@ const Headers = styled.header`
   color: var(--white);
   position: relative;
   z-index: 500;
+
+  @media only Screen and (max-width: 64em) {
+    padding: 0.5rem 3rem;
+  }
+
+  @media only Screen and (max-width: 40em) {
+    padding: 0.5rem 1.5rem;
+  }
 `
 
 const Logo = styled.a`
@@ -147,8 +157,56 @@ const Header = () => {
 
   const handleClick = () => setClick(!click)
 
+  const ref = useRef(null)
+  gsap.registerPlugin(ScrollTrigger)
+
+  useEffect(() => {
+    const element = ref.current
+    const mq = window.matchMedia('(max-width:40em)')
+
+    if (mq.matches) {
+      gsap.to(element, {
+        position: 'fixed',
+        top: '0rem',
+        left: '0rem',
+        right: '0rem',
+        padding: '1rem 2.5rem',
+        borderRadius: '0 0 50px 50px',
+        border: '2px solid var(--white)',
+
+        duration: 1,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'bottom+=200 top',
+          end: '+=100',
+          scrub: true,
+        },
+      })
+    } else {
+      gsap.to(element, {
+        position: 'fixed',
+        top: '1rem',
+        left: '3rem',
+        right: '3rem',
+        padding: '1.5rem 2rem',
+        borderRadius: '50px',
+        border: '3px solid var(--white)',
+
+        duration: 1,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: element,
+          start: 'bottom+=300 top',
+          end: '+=250',
+          scrub: true,
+        },
+      })
+    }
+  }, [])
+
   return (
-    <Headers>
+    <Headers ref={ref}>
       <Logo>
         <img src={logo} alt='CodeBucks' />
         <h3>CodeBucks</h3>
